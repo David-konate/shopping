@@ -1,0 +1,13 @@
+:root {
+    --primary-color : #472b3b;
+    --background-body : #111827;
+    --box-shadow-primary-color: 0 20px 50px #472b3b;
+}
+
+
+body.body{
+    background-color:#111827;
+}
+body {
+    background-color:#111827;
+}
