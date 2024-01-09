@@ -8,6 +8,7 @@
 
 body.body {
     background-color: var(--primary-color)!important;
+    color: #1118274b;
 }
 
 .background-primary {

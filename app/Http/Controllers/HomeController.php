@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
 
         $products = Product::query()
-        ->select('products.id', 'products.name')
+        ->select('products.id', 'products.name', 'products.description', 'products.presentation' )
         ->join('categories', 'products.category_id', '=', 'categories.id')
             ->when(
                 $request->q,
