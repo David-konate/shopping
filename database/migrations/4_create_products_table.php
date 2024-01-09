@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+   // Migration pour la table 'products'
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -16,13 +17,16 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description')->nullable();
             $table->decimal('price', 10, 2);
+            $table->boolean('solde')->default(false);
             $table->integer('stock')->default(0);
-            $table->string('image_url')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('solder_id')->nullable(); // Correction ici
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
@@ -33,4 +37,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('products');
     }
-};
+}
+;

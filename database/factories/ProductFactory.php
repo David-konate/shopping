@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductFactory extends Factory
@@ -30,9 +31,9 @@ class ProductFactory extends Factory
             'description' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 10, 100),
             'stock' => $this->faker->randomNumber(2),
-            'image_url' => $this->faker->imageUrl(),
-            'user_id' => $userId,
-            // Ajoutez d'autres colonnes et attributs de votre modèle ici
+            'user_id' => User::inRandomOrder()->first()->id,
+            'category_id' => Category::inRandomOrder()->first()->id,
+            'solde' => $this->faker->randomElement([true, false, false, false, false]), // 80% de chance d'être false, 20% d'être true
         ];
     }
 }
