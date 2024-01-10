@@ -17,26 +17,25 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = Product::query()
-        ->select('products.*', 'categories.name as category_name')
-        ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
-        ->when(
-            $request->q,
-            function (Builder $builder) use ($request) {
-                $builder
-                    ->where('products.name', 'like', "%{$request->q}%")
-                    ->orWhere('categories.name', 'like', "%{$request->q}%")
-                    ->orderBy('products.name', 'asc');
-            }
-        )
-        ->paginate(9);
+            ->select('products.*', 'categories.name as category_name')
+            ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+            ->when(
+                $request->q,
+                function (Builder $builder) use ($request) {
+                    $builder
+                        ->where('products.name', 'like', "%{$request->q}%")
+                        ->orWhere('categories.name', 'like', "%{$request->q}%")
+                        ->orderBy('products.name', 'asc');
+                }
+            )
+            ->paginate(9);
 
-    $images = ProductImage::all();
-    $categories = Category::all();
-    $soldes = Solde::orderBy('start_date', 'asc')->get();
+        $images = ProductImage::all();
+        $categories = Category::all();
+        $soldes = Solde::orderBy('start_date', 'asc')->get();
 
 
-    return view('products.index', compact('products', 'images', 'categories', 'soldes'));
-
+        return view('products.index', compact('products', 'images', 'categories', 'soldes'));
     }
 
     /**
@@ -60,7 +59,15 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find($id);
+        $images = ProductImage::where('product_id', $product->id)
+        ->get();;
+        $categories = Category::all();
+        $soldes = Solde::where('product_id', $product->id)
+            ->orderBy('start_date', 'asc')
+            ->get();
+
+        return view('products.show', compact('product', 'images', 'categories', 'soldes'));
     }
 
     /**
