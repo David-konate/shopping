@@ -26,7 +26,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-
         $products = Product::query()
         ->select('products.id', 'products.name', 'products.description', 'products.presentation' )
         ->join('categories', 'products.category_id', '=', 'categories.id')

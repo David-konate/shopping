@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('messages', \App\Http\Controllers\MessageController::class);
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::resource('products', \App\Http\Controllers\ProductController::class);
+
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');

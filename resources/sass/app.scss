@@ -1,8 +1,243 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+:root {
+    --secondary-color:#472b3b;
+    --primary-color: #111827;
+    --background-body: #111827;
+    --box-shadow-primary-color: 0 20px 50px --secondary-color;
+}
+.box.sha.primary {
+    box-shadow: 0 20 50px var(--primary-color);
+}
+.box.sha.secondary {
+    box-shadow: 0 20 50px var(--secondary-color);
+}
+
+body.body {
+    background-color: var(--background-body);
+}
+.body {
+    background-color: var(--background-body);
+}
+
+/* page Acceuil */
+
+.carousel-control-next .sr-only {
+    text-decoration: none;
+}
+.sr-only {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+}
+.img-solde img {
+    height: 600px;
+}
+
+.carousel-caption h1 {
+    background-color: var(--primary-color);
+    margin-left: 30%;
+    margin-right: 30%;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 20px 30px var(--primary-color);
+}
+
+.carousel-caption p {
+    background-color: var(--primary-color);
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 20px 30px var(--primary-color);
+}
+
+.img-promo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    max-width: 150px; /* Ajustez selon vos besoins */
+    max-height: 150px; /* Ajustez selon vos besoins */
+    z-index: 2; /* Assurez-vous que l'image est au-dessus des autres éléments */
+}
+
+// pages products
+
+.card-product {
+    width: 290px!important;
+}
+
+.card-product {
+    object-fit: cover!important;
+    width: 250px!important;
+    height: 250px!important;
+}
+
+
+.img-hero-index {
+    width: fit-content!important;
+
+}
+
+.img-hero-index>img {
+    object-fit: cover!important;
+    width: 177px!important;
+    height: 130px!important;
+}
+
+
+.img-hero-index-card {
+    width: fit-content !important;
+    border-radius: 5px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 0 10px #ffff !important;
+    margin-left: auto;  /* Ajout de la marge automatique à gauche */
+    margin-right: auto; /* Ajout de la marge automatique à droite */
+}
+
+.img-hero-index-card > img {
+    object-fit: cover !important;
+    height: 300px !important;
+}
+
+.skill-card {
+    padding: 0 50px;
+}
+
+.btn-skill {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.magic-card {
+    background-color: black !important;
+    border: 1px solid #000 !important; /* Couleur noire pour la bordure */
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    width: 420px !important;
+    box-shadow: 0 0 20px --secondary-color !important;
+    padding: 13px; /* Espace intérieur de la carte */
+    border-radius: 10px !important;
+    border: 0.2px solid #ffffff6e  !important; /* Bordure noire de 2 pixels */
+
+}
+
+.card-header {
+    background-color: --secondary-color !important;
+    color: #fff !important;
+    padding: 4px 12px; /* Ajustez la valeur selon vos préférences */
+    text-align: center !important;
+    border-radius: 10px  !important;
+    border-radius: 10px !important; border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
+    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+}
+
+.card-body-magic {
+    background-color: var(--secondary-color) !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
+    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+    height: 350px;
+}
+
+
+.card-body h2 {
+    font-size: 1.5em !important;
+    margin-bottom: 10px !important;
+}
+
+.card-body p {
+    margin: 5px 0 !important;
+
+}
+
+
+.card-section {
+    font-size: 1.5em !important;
+    margin-bottom: 10px !important;
+    background-color: #2e1c26 !important;
+    color: #fff !important;
+    padding: 0px 12px; /* Ajustez la valeur selon vos préférences */
+    text-align: center !important;
+    border-radius: 10px !important;
+    width: 430px; /* Prendre 100% + le double de la valeur de padding */
+    margin-left: -28px; /* Compenser la moitié de la valeur du padding */
+    margin-top: 5px; /* Compenser la moitié de la valeur du padding */
+    border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
+    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+}
+.titre-card-product {
+
+    margin-bottom: 10px !important;
+    background-color: var(--primary-color);
+    color: #fff !important;
+    padding: 0px 12px; /* Ajustez la valeur selon vos préférences */
+    text-align: center !important;
+    border-radius: 10px !important;
+
+
+    margin-top: 5px; /* Compenser la moitié de la valeur du padding */
+    border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
+    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+}
+
+.presentation {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #000;
+    text-align: center;
+    color: white;
+    width: 100%;
+
+    border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
+    box-shadow: 0 0 4px #ffff; /* Bordure de votre choix */
+        /* Styles pour la barre de défilement */
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #ffffff --secondary-color; /* Firefox */
+        overflow-y: auto;
+}
+/* Styles spécifiques pour Webkit (Chrome/Safari) */
+.presentation::-webkit-scrollbar {
+    width: 6px;
+}
+
+.presentation::-webkit-scrollbar-thumb {
+    background-color: --secondary-color;
+}
+
+.presentation::-webkit-scrollbar-track {
+    background-color: black;
+}
+  /* Ajoutez cette règle CSS pour augmenter la hauteur de la div */
+  .skill-select {
+    height: 3000px!important; /* Remplacez 300px par la hauteur souhaitée */
+}
+
+.remise {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

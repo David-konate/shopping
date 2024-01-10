@@ -34,7 +34,7 @@ class ProductFactory extends Factory
             'stock' => $this->faker->randomNumber(2),
             'user_id' => User::inRandomOrder()->first()->id,
             'category_id' => Category::inRandomOrder()->first()->id,
-            'solde' => $this->faker->randomElement([true, false, false, false, false]), // 80% de chance d'être false, 20% d'être true
+            'welcome' => $this->faker->randomElement([true, false, false, false, false]), // 80% de chance d'être false, 20% d'être true
         ];
     }
 }

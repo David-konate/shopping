@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('presentation');
             $table->longText('description')->nullable();
             $table->decimal('price', 10, 2);
-            $table->boolean('solde')->default(false);
+            $table->boolean('welcome')->default(false);
             $table->integer('stock')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('solder_id')->nullable(); // Correction ici
+            $table->unsignedBigInteger('solde_id')->nullable(); // Correction ici
             $table->timestamps();
 
 
