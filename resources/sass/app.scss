@@ -8,9 +8,9 @@
 @import "bootstrap/scss/bootstrap";
 
 :root {
-    --secondary-color:#472b3b;
-    --primary-color: #111827;
-    --background-body: #111827;
+    --secondary-color:#d51c1c9a;
+    --primary-color: rgb(249, 249, 249);
+    --background-body: rgb(249, 249, 249);
     --box-shadow-primary-color: 0 20px 50px --secondary-color;
 }
 .box.sha.primary {
@@ -130,33 +130,32 @@ body.body {
 
 .magic-card {
     background-color: black !important;
-    border: 1px solid #000 !important; /* Couleur noire pour la bordure */
+
     border-radius: 10px !important;
     overflow: hidden !important;
     width: 420px !important;
     box-shadow: 0 0 20px --secondary-color !important;
     padding: 13px; /* Espace intérieur de la carte */
     border-radius: 10px !important;
-    border: 0.2px solid #ffffff6e  !important; /* Bordure noire de 2 pixels */
 
 }
 
 .card-header {
-    background-color: --secondary-color !important;
-    color: #fff !important;
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
     padding: 4px 12px; /* Ajustez la valeur selon vos préférences */
     text-align: center !important;
     border-radius: 10px  !important;
-    border-radius: 10px !important; border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
-    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+    border-radius: 10px !important;
+    border: 1px solid var(--secondary-color); /* Bordure noire de 2 pixels */
+    box-shadow: 0 0 10px var(--secondary-color); /* Bordure de votre choix */
 }
 
 .card-body-magic {
-    background-color: var(--secondary-color) !important;
+    background-color: var(--primary-color) !important;
     padding: 20px !important;
     border-radius: 10px !important;
-    border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
-    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+    box-shadow: 0 0 10px var(--secondary-color); /* Bordure de votre choix */
 }
 
 
@@ -174,29 +173,29 @@ body.body {
 .card-section {
     font-size: 1.5em !important;
     margin-bottom: 10px !important;
-    background-color: #2e1c26 !important;
-    color: #fff !important;
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
     padding: 0px 12px; /* Ajustez la valeur selon vos préférences */
     text-align: center !important;
     border-radius: 10px !important;
     width: 430px; /* Prendre 100% + le double de la valeur de padding */
     margin-left: -28px; /* Compenser la moitié de la valeur du padding */
     margin-top: 5px; /* Compenser la moitié de la valeur du padding */
-    border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
+    border: 1px solid var(--secondary-color); /* Bordure noire de 2 pixels */
     box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
 }
 .titre-card-product {
 
     margin-bottom: 10px !important;
     background-color: var(--primary-color);
-    color: #fff !important;
+    color: var(--secondary-color) !important;
     padding: 0px 12px; /* Ajustez la valeur selon vos préférences */
     text-align: center !important;
     border-radius: 10px !important;
 
 
     margin-top: 5px; /* Compenser la moitié de la valeur du padding */
-    border: 1px solid #ffffff6e; /* Bordure noire de 2 pixels */
+    border: 1px solid var(--secondary-color); /* Bordure noire de 2 pixels */
     box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
 }
 
@@ -233,7 +232,7 @@ body.body {
 }
 
 .remise {
-    background-color: var(--primary-color);
+    background-color: #d0d613;
     border-radius: 5px;
     margin-left: 20%;
     margin-right: 20%;

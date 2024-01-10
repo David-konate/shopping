@@ -19,7 +19,7 @@
                 <div class="row justify-content-center">
                     @foreach($products as $product)
                     <a href="{{ route('products.show', $product->id) }}" class="col-md-4 text-decoration-none">
-                        <div class="card mb-3 custom-card bg-dark text-center">
+                        <div class="card mb-3 custom-card text-center">
                             <div class="card-body-magic" style="min-height: 630px;">
                                 <h2 class="titre-card-product titre-card-product mt-2 mb-2">
                                     {{$product->name}}
@@ -45,16 +45,16 @@
                                     @php
                                     $nouveau_prix = round($product->price - ($solde->percentage * $product->price / 100), 2);
                                     @endphp
-                                    <div class="mt-3 text-white d-flex justify-content-evenly">
+                                    <div class="mt-3  d-flex justify-content-evenly">
                                         <p class="text-center mt-1"><del>{{$product->price}} €</del></p>
                                         <p class="text-center font-weight-bold fs-5">{{ $nouveau_prix }} €</p>
                                     </div>
-                                    <p class="mt-2 text-white text-left remise text-center">Remise de {{$solde->percentage}} %</p>
+                                    <p class="mt-2  text-left remise text-center">Remise de {{$solde->percentage}} %</p>
                                     @break
                                     @endif
                                     @endforeach
                                     @if(!$hasSolde)
-                                    <p class="mt-5 text-white text-left mt-3 fs-5">{{$product->price}} €</p>
+                                    <p class="mt-5 text-left mt-3 fs-5">{{$product->price}} €</p>
                                     @endif
                                 </div>
                             </div>
