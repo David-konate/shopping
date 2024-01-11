@@ -87,10 +87,9 @@ class ProductController extends Controller
     public function show(string $id)
     {
         $product = Product::find($id);
-        $images = ProductImage::where('product_id', $product->id)
-            ->get();;
+        $images = ProductImage::where('product_id', $product->id)->get();
         $categories = Category::all();
-        $soldes = Solde::where('product_id', $product->id)
+        $soldes = Solde::where('product_id', $id)
             ->orderBy('start_date', 'asc')
             ->get();
 
@@ -102,16 +101,42 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+        $categories = Category::orderBy('name', 'asc')->get();
+
+
+        return view('products.edit', compact('product', 'categories', ));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+public function update(Request $request, string $id)
+{
+    $request->validate([
+        'name' => 'required|string',
+        // Ajoutez ici d'autres règles de validation pour d'autres champs si nécessaire
+    ]);
+
+    $product = Product::find($id);
+
+    if (!$product) {
+        return redirect()->route('products.index')->with('error', 'Produit non trouvé');
     }
+
+    $product->name = $request->input('name');
+    $product->presentation = $request->input('presentation');
+    $product->description = $request->input('description');
+    $product->price = $request->input('price');
+    $product->stock = $request->input('stock');
+    $product->category_id = $request->input('category_id'); // Assurez-vous que c'est la bonne propriété
+    $product->welcome = $request->has('welcome');
+
+    $product->save();
+
+    return redirect()->route('products.index')->with('success', 'Le produit a été mis à jour avec succès !');
+}
+
 
     /**
      * Remove the specified resource from storage.

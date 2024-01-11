@@ -22,9 +22,9 @@ Créer un produit
 
             <div class="mb-3 col-md-6 mx-auto mt-2">
                 <label for="category_id" class="form-label">Catégorie</label>
-                <select class="form-select" id="category_id" name="category_id" required>
+                <select class="form-select text-black" id="category_id" name="category_id" required>
                     @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option class="text-dark" value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>

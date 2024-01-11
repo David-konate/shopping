@@ -26,3 +26,6 @@ Route::resource('messages', \App\Http\Controllers\MessageController::class);
 Route::resource('products', \App\Http\Controllers\ProductController::class);
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::patch('/products/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('products.update');
+
