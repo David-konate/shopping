@@ -41,7 +41,6 @@
                                     @foreach($soldes as $solde)
                                     @if($solde->product_id == $product->id)
                                     @php $hasSolde = true; @endphp
-
                                     @php
                                     $nouveau_prix = round($product->price - ($solde->percentage * $product->price / 100), 2);
                                     @endphp

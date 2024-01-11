@@ -8,6 +8,7 @@ use App\Models\ProductImage;
 use App\Models\Solde;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -27,8 +28,8 @@ class ProductController extends Controller
                         ->orWhere('categories.name', 'like', "%{$request->q}%")
                         ->orderBy('products.name', 'asc');
                 }
-            )
-            ->paginate(9);
+            )->get();
+        // ->paginate(9);
 
         $images = ProductImage::all();
         $categories = Category::all();
@@ -43,7 +44,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::orderBy('name', 'asc')->get();
+
+        return view('products.create', compact('categories',));
     }
 
     /**
@@ -51,7 +54,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+        ]);
+
+        $product = Product::create([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'presentation' =>  $request->presentation,
+            'description' =>  $request->description,
+            'price' =>  $request->price,
+            'welcome' => false,  //pas sur la page d'acceuil par default
+            'stock' =>  $request->stock,
+            'category_id' =>  $request->category_id,
+            'solde_id' => null,
+        ]);
+
+          // Attachement des images
+        //   $imageIds = $request->input('images_ids', []);
+        //   $images = Image::find($imageIds);
+
+        //   $product->images()->saveMany($images);
+
+        return redirect()->route('products.index')
+            ->with('success', 'Produit ajouté avec succès !');
+
     }
 
     /**
@@ -61,7 +88,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $images = ProductImage::where('product_id', $product->id)
-        ->get();;
+            ->get();;
         $categories = Category::all();
         $soldes = Solde::where('product_id', $product->id)
             ->orderBy('start_date', 'asc')

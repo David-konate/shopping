@@ -11,7 +11,8 @@
     --secondary-color:#d51c1c9a;
     --primary-color: rgb(249, 249, 249);
     --background-body: rgb(249, 249, 249);
-    --box-shadow-primary-color: 0 20px 50px --secondary-color;
+    --box-shadow-primary-color: 0 20px 50px --primary-color;
+    --box-shadow-secondary-color: 0 20px 50px --secondary-color;
 }
 .box.sha.primary {
     box-shadow: 0 20 50px var(--primary-color);
@@ -40,6 +41,16 @@ body.body {
     height: 600px;
 }
 
+.carou-img {
+
+    box-shadow: 0 20 50px var(--secondary-color);
+    display: flex;
+    justify-content: center;
+}
+.test{
+    box-shadow: 0 20 50px var(--secondary-color);
+    border-radius: 5px;
+}
 .carousel-caption h1 {
     background-color: var(--primary-color);
     margin-left: 30%;
@@ -147,7 +158,7 @@ body.body {
     text-align: center !important;
     border-radius: 10px  !important;
     border-radius: 10px !important;
-    border: 1px solid var(--secondary-color); /* Bordure noire de 2 pixels */
+    border-color: var(--secondary-color);
     box-shadow: 0 0 10px var(--secondary-color); /* Bordure de votre choix */
 }
 
@@ -238,4 +249,33 @@ body.body {
     margin-right: 20%;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+
+//  page creation de produit
+.form-create-prod{
+    border: 1px solid var(--secondary-color);
+    box-shadow: var(--box-shadow-secondary-color);
+    border-radius: 5px;
+
+}
+
+.form-create-prod input{
+    background-color: var(--secondary-color);
+}
+.form-create-prod input:hover{
+    background-color: var(--secondary-color);
+}
+.form-create-prod select{
+    background-color: var(--secondary-color);
+}
+.form-create-prod textarea{
+    background-color: var(--secondary-color);
+}
+.form-create-prod textarea:hover{
+    background-color: var(--secondary-color);
+}
+
+.form-control:hover {
+    box-shadow: var(--box-shadow-secondary-color);
 }

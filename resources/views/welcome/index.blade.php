@@ -9,7 +9,7 @@
         <div class="box-sha-primary">
             <!-- Ajouter l'image dans le coin supérieur gauche -->
             <img src="{{ asset('images/solde.jpg') }}" alt="Overlay Image" class="overlay-image">
-            <div style="display: flex; justify-content: center;">
+            <div class="carou-img">
                 <div class="img-solde">
                     <img src="{{ asset($product->images->first()->image_url) }}" alt="Product Image">
                 </div>
@@ -24,8 +24,8 @@
         </div>
         @else
         <img src="{{ asset('images/solde.jpg') }}" alt="Overlay Image" class="overlay-image">
-            <div  style="display: flex; justify-content: center;">
-                <img src="{{ asset('images/basket.jpg') }}" alt="Product Image" style="height:600px;">
+            <div class="test"  style="display: flex; justify-content: center;">
+                <img class="test" src="{{ asset('images/basket.jpg') }}" alt="Product Image" style="height:600px;">
                 <img src="{{ asset('images/basket.jpg') }}" alt="Product Image" style="height:600px;">
             </div>
             <div class="carousel-caption d-none d-md-block">
@@ -47,18 +47,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mt-5">
+            <div class=" mt-5">
                 <h1 class="card-header background-primary text-white text-center">Shopping.com</h1>
             </div>
         </div>
     </div>
 </div>
 
-<!-- script Three.js -->
-
-<!-- Ajoutez le script Bootstrap JavaScript (jQuery doit être inclus avant) -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 @endsection
