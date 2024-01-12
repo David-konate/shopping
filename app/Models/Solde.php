@@ -9,7 +9,7 @@ class Solde extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'start_date', 'end_date', 'percentage','user', 'product', 'category' ];
+    protected $fillable = ['name', 'start_date', 'end_date', 'percentage','user_id', 'product', 'category' ];
 
     public function user()
     {

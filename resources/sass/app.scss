@@ -10,9 +10,16 @@
 :root {
     --secondary-color:#d51c1c9a;
     --primary-color: rgb(249, 249, 249);
-    --background-body: rgb(249, 249, 249);
+    --background-body-primary: rgb(249, 249, 249);
+    --background-body-secondary: #d51c1c9a;
     --box-shadow-primary-color: 0 20px 50px --primary-color;
     --box-shadow-secondary-color: 0 20px 50px --secondary-color;
+}
+.boxshadow-secondary-color {
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+.background-color-secondary {
+    background-color: var(--background-body-secondary)!important;
 }
 .box.sha.primary {
     box-shadow: 0 20 50px var(--primary-color);
@@ -28,6 +35,9 @@ body.body {
     background-color: var(--background-body);
 }
 
+.material-icons {
+    color: var(--secondary-color);
+}
 /* page Acceuil */
 
 .carousel-control-next .sr-only {
@@ -128,6 +138,7 @@ body.body {
     height: 300px !important;
 }
 
+
 .skill-card {
     padding: 0 50px;
 }
@@ -207,7 +218,7 @@ body.body {
 
     margin-top: 5px; /* Compenser la moitié de la valeur du padding */
     border: 1px solid var(--secondary-color); /* Bordure noire de 2 pixels */
-    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+    box-shadow: 0 0 10px var(--secondary-color); /* Bordure de votre choix */
 }
 
 .presentation {
@@ -279,3 +290,172 @@ body.body {
 .form-control:hover {
     box-shadow: var(--box-shadow-secondary-color);
 }
+
+
+
+.table-admin-prod{
+    box-shadow: 0 0 20px var(--secondary-color) !important;
+    max-height: 300px;
+   overflow-y: auto;
+    border-radius: 5px;
+    display: flex;
+    min-width: 650px;
+    justify-content: space-evenly;
+    border: 1px solid var(--secondary-color);
+    border-right: 200px;
+
+}
+.table-admin-user{
+    box-shadow: 0 0 20px var(--secondary-color) !important;
+    max-height: 300px;
+    min-width: 650px;
+   overflow-y: auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid var(--secondary-color);
+    border-right: 200px;
+}
+.btn-secondary-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    height: 50px;
+    width: 150px;
+}
+.btn-secondary-color:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+    height: 50px;
+    width: 150px;
+}
+.btn-secondary-color-sm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    height: 50px;
+    width: 50px;
+}
+.btn-secondary-color-sm:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+    height: 50px;
+    width: 50px;
+}
+
+
+// Detail product
+
+.image-prod-detail {
+    width: 350px;
+}
+
+.image-prod-detail {
+    width: fit-content !important;
+    border-radius: 5px !important;
+    margin-bottom: 10px !important;
+
+    margin-left: auto;  /* Ajout de la marge automatique à gauche */
+    margin-right: auto; /* Ajout de la marge automatique à droite */
+}
+
+.image-prod-detail > img {
+    object-fit: cover !important;
+    height: 400px !important;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 0 10px var(--secondary-color);
+    border-radius: 5px !important;
+}
+
+.price-prod-detail{
+    margin-top: 150px;
+}
+
+
+.custom-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 100%; /* Set the left edge to be the same as the right edge of the parent container */
+    background-color: var(--secondary-color);
+    width: 100vw; /* Set width to 100% of viewport width */
+    z-index: -1; /* Send the background behind other elements */
+}
+
+    .red-background {
+        background-color: var(--secondary-color);
+         /* Ajustez la valeur en fonction de vos besoins */
+        display: inline-block;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+
+    }
+
+    .title-descend {
+        margin-top: 50px; /* Ajustez la valeur en fonction de la descente souhaitée */
+    }
+
+
+    .span-solde {
+        border-radius: 5px;
+        padding-top: 2px;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .image-solde-detail {
+        width: 350px;
+    }
+
+    .image-solde-detail {
+        width: fit-content !important;
+        border-radius: 5px !important;
+        margin-bottom: 10px !important;
+        width: 350px;
+        margin-left: auto;  /* Ajout de la marge automatique à gauche */
+        margin-right: auto; /* Ajout de la marge automatique à droite */
+    }
+
+    .image-solde-detail > img {
+
+        height: 300px !important;
+        border: 1px solid var(--secondary-color);
+        box-shadow: 0 0 10px var(--secondary-color);
+        border-radius: 5px !important;
+    }
+    .titre-card-solde {
+
+        margin-bottom: 10px !important;
+        background-color: var(--secondary-color);
+        color: var(--primary-color) !important;
+        padding: 0px 12px; /* Ajustez la valeur selon vos préférences */
+        text-align: center !important;
+        border-radius: 10px !important;
+
+
+        margin-top: 5px; /* Compenser la moitié de la valeur du padding */
+        border: 1px solid var(--secondary-color); /* Bordure noire de 2 pixels */
+        box-shadow: 0 0 10px var(--secondary-color); /* Bordure de votre choix */
+    }
+
+    .result-solde {
+        border: 2px solid var(--secondary-color);
+    }

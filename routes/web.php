@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckRole;
 
 
 
@@ -21,9 +22,17 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+// routes/web.php
+
+
+
+
 
 Route::resource('messages', \App\Http\Controllers\MessageController::class);
 Route::resource('products', \App\Http\Controllers\ProductController::class);
+Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::middleware(['auth', 'role:2'])->resource('admin', \App\Http\Controllers\AdminController::class);
+Route::middleware(['auth', 'role:2'])->resource('soldes', \App\Http\Controllers\SoldeController::class);
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

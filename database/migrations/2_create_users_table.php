@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->decimal('purchase_total', 10, 2)->nullable();
+            $table->decimal('purchase_count', 10, 2)->nullable();
 
             $table->foreignId('role_id')->default(1)->constrained();
         });

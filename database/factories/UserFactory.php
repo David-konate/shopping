@@ -30,6 +30,11 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'purchase_count' => $this->faker->numberBetween(0, 20),
+            'purchase_total' => function (array $attributes) {
+                // Vérifier si 'purchase_count' est égal à 0, si oui, définir 'purchase_total' à 0
+                return $attributes['purchase_count'] === 0 ? 0 : $this->faker->randomFloat(2, 10, 100);
+            },
         ];
     }
 

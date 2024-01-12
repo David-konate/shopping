@@ -43,6 +43,9 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
+                        <li class="nav-item">
+                        <a class="dropdown-item text-white" href="{{ route('products.index') }}">Nos produits</a>
+                        </li>
                         @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -62,6 +65,8 @@
 
                             <div class="dropdown-menu dropdown-menu-end background-secondary" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-white" href="{{ route('products.index') }}">Nos produits</a>
+                            <a class="dropdown-item text-white" href="{{ route('soldes.index') }}">Nos soldes</a>
+                            <a class="dropdown-item text-white" href="{{ route('users.edit', $user = Auth::user())}}">Mon compte</a>
                                 <a class="dropdown-item text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

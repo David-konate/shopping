@@ -31,6 +31,7 @@ class ProductFactory extends Factory
             'presentation' => $this->faker->sentence,
             'description' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 10, 100),
+
             'stock' => $this->faker->randomNumber(2),
             'user_id' => User::inRandomOrder()->first()->id,
             'category_id' => Category::inRandomOrder()->first()->id,
