@@ -3,24 +3,30 @@
 @section('content')
 <div class="container">
     <div class="row">
+    @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
         <div class="col-md-12 text-center mt-5">
+            @if($user->role_id == 2)
+            <div class="d-flex justify-content-end">
+                <a href="{{ route('products.edit', $product->id) }}" class="material-icons" style="font-size: 1.3rem; color: gray; text-decoration: none;">settings</a>
+            </div>-
+            @endif
             <div class="card custom-card mt-4 mx-auto" style="max-width: 1000px;">
                 <div class="row g-0 custom-card">
                     <!-- Top Section -->
-                    <div class="img-product-index col-md-4">
-                        <div class="img-hero-index-card mt-4">
-                            <div id="carouselExampleControls" class="carousel slide mt-3" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    @foreach($images as $index => $image)
-                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }} image-prod-detail ms-4">
-                                        {{$loop->iteration}}
-                                        <img src="{{ asset($image->image_url) }}" alt="Product Image">
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
+                    <div class="img-product-index col-md-4 ">
+                        <div class="img-hero-index-card mt-4  ms-3">
+                            @if(count($images) > 0)
+                            <img src="{{ asset('storage/uploads/' . $images[0]->image_url) }}" alt="Product Image" class=" boxshadow-secondary-color">
+                            @else
+                            <img src="{{ asset('images/npi.png') }}" alt="Product Image" class=" boxshadow-secondary-color">
+                            @endif
                         </div>
                     </div>
+
                     <div class="col-md-8 mt-4">
                         <!-- Top-right content -->
                         <div class="col-md-12 text-end">
@@ -73,7 +79,6 @@
                     marginLeft: '0' // Définir la marge gauche à 0
                 }, "slow");
             });
-
         </script>
     </div>
 </div>

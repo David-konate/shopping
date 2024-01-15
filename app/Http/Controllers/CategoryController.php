@@ -59,9 +59,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $categories = Category::orderBy('name', 'asc')->get();
+        $category = Category::find($id);
 
-        return view('categories.edit', compact( 'categories', ));
+        return view('categories.edit', compact( 'category', ));
     }
 
     /**
@@ -89,6 +89,12 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $category = Category::findOrFail($id);
+
+        $category->delete();
+
+        return redirect()->route('categories.index',)->with('success', 'Categorie supprimée avec succès');
+
     }
 }

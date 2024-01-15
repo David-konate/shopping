@@ -1,38 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
 
-use App\Models\Solde;
-use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class ImageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-
-     public function __construct()
-     {
-         $this->middleware('auth');
-     }
-
     public function index()
     {
-        // Récupérez l'utilisateur en cours
-        $useNow = Auth::user();
-        if ($useNow->role_id != 2) {
-            return redirect()->route('products.index')
-            ->with('error', 'Acces impossible !');
-        }
-        $products = Product::orderBy('name', 'asc')->get();
-
-        $users = User::orderBy('last_name', 'asc')->get();
-        $soldes = Solde::orderBy('name', 'asc')->get();
-
-        return view('admin.index', compact('useNow', 'products', 'users', 'soldes'));
+        //
     }
 
     /**
@@ -80,6 +60,14 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+
+        $image = ProductImage::findOrFail($id);
+        $productId = $image->product_id;
+        $image->delete();
+
+        return redirect()->route('products.show', $productId)->with('success', 'Image supprimée avec succès');
+
+
     }
 }

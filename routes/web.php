@@ -31,6 +31,8 @@ Auth::routes();
 Route::resource('messages', \App\Http\Controllers\MessageController::class);
 Route::resource('products', \App\Http\Controllers\ProductController::class);
 Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::resource('images', \App\Http\Controllers\ImageController::class);
+Route::resource('categories', \App\Http\Controllers\CategoryController::class);
 Route::middleware(['auth', 'role:2'])->resource('admin', \App\Http\Controllers\AdminController::class);
 Route::middleware(['auth', 'role:2'])->resource('soldes', \App\Http\Controllers\SoldeController::class);
 

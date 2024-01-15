@@ -10,34 +10,35 @@
     <div class="carousel-inner text-white">
         @foreach($products as $key => $product)
         <div class="carousel-item {{$key == 0 ? 'active' : ''}} box-sha-primary">
-            @if($product->images->count() > 0)
             <div class="box-sha-primary">
+                <a href="{{ route('products.show', $product->id) }}">
                 <!-- Ajouter l'image dans le coin supérieur gauche -->
                 <img src="{{ asset('images/solde.jpg') }}" alt="Overlay Image" class="overlay-image">
                 <div class="carou-img">
-                    <div class="img-solde">
-                        <img src="{{ asset($product->images->first()->image_url) }}" alt="Product Image">
-                    </div>
-                    <div class="img-solde">
-                        <img src="{{ asset($product->images->first()->image_url) }}" class="" alt="Product Image">
+                    <div class="img-solde d-flex justify-content-between">
+                        <div class="img-solde">
+                            @if($product->images->count() >= 3)
+                            <img src="{{ asset('storage/uploads/' .  $product->images[0]->image_url) }}" alt="Product Image">
+                            @else
+                            <!-- Afficher une image par défaut ou un message selon votre besoin -->
+                            <img src="{{ asset('images/npi.png') }}" alt="Image par défaut">
+                            @endif
+                        </div>
+                        <div class="img-solde">
+                            @if($product->images->count() >= 2)
+                            <img src="{{ asset( 'storage/uploads/' . $product->images[1]->image_url) }}" class="" alt="Product Image">
+                            @else
+                            <!-- Afficher une image par défaut ou un message selon votre besoin -->
+                            <img src="{{ asset('images/npi.png') }}" alt="Image par défaut">
+                            @endif
+                        </div>
                     </div>
                     <div class="carousel-caption d-none d-md-block">
-                        <h1 class="text-bold">{{$product->name}}</h1>
-                        <p style="background-color: #1118274b; margin-left: 15%; margin-right: 15%">{{$product->presentation}}</p>
+                        <h1 class="text-bold secondary-color">{{$product->name}}</h1>
                     </div>
                 </div>
+                </a>
             </div>
-            @else
-            <img src="{{ asset('images/solde.jpg') }}" alt="Overlay Image" class="overlay-image">
-            <div class="test" style="display: flex; justify-content: center;">
-                <img class="test" src="{{ asset('images/basket.jpg') }}" alt="Product Image" style="height:600px;">
-                <img src="{{ asset('images/basket.jpg') }}" alt="Product Image" style="height:600px;">
-            </div>
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="text-bold" style="">{{$product->name}}</h1>
-                <p style="background-color: #1118274b; margin-left: 15%; margin-right: 15%">{{$product->presentation}}</p>
-            </div>
-            @endif
         </div>
         @endforeach
     </div>
@@ -51,13 +52,12 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class=" mt-5">
-                <h1 class="card-header background-primary text-white text-center">Shopping.com</h1>
-            </div>
+        <div class="col-md-8 mt-5">
+            <h1 class="card-header background-primary text-white text-center">
+                <a href="{{ route('products.index') }}" class=" secondary-color background-primary text-decoration-none">Shopping.com</a>
+            </h1>
         </div>
     </div>
 </div>
-
 
 @endsection

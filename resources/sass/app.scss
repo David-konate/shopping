@@ -15,6 +15,9 @@
     --box-shadow-primary-color: 0 20px 50px --primary-color;
     --box-shadow-secondary-color: 0 20px 50px --secondary-color;
 }
+.secondary-color {
+    color: var(--secondary-color);
+}
 .boxshadow-secondary-color {
     box-shadow: 0 0 10px var(--secondary-color);
 }
@@ -200,12 +203,19 @@ body.body {
     padding: 0px 12px; /* Ajustez la valeur selon vos préférences */
     text-align: center !important;
     border-radius: 10px !important;
-    width: 430px; /* Prendre 100% + le double de la valeur de padding */
-    margin-left: -28px; /* Compenser la moitié de la valeur du padding */
-    margin-top: 5px; /* Compenser la moitié de la valeur du padding */
+    width: 100%; /* Utilisation de la largeur en pourcentage */
+    max-width: 430px; /* Limitez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+    margin: 5px auto; /* Centrez le bloc et ajustez la marge en conséquence */
     border: 1px solid var(--secondary-color); /* Bordure noire de 2 pixels */
-    box-shadow: 0 0 10px --secondary-color; /* Bordure de votre choix */
+    box-shadow: 0 0 10px var(--secondary-color); /* Bordure de votre choix */
+
+    /* Media query pour les écrans plus petits */
+    @media (max-width: 768px) {
+        font-size: 1.2em;
+        max-width: 100%;
+    }
 }
+
 .titre-card-product {
 
     margin-bottom: 10px !important;

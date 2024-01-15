@@ -18,19 +18,21 @@
             <div class="container-fluid mt-4">
                 <div class="row justify-content-center">
                     @foreach($products as $product)
-                    <a href="{{ route('products.show', $product->id) }}" class="col-md-4 text-decoration-none">
+                    <a href="{{ route('products.show', $product->id) }}" class="col-md-4 text-decoration-none mt-4">
                         <div class="card mb-3 custom-card text-center">
                             <div class="card-body-magic" style="min-height: 630px;">
                                 <h2 class="titre-card-product titre-card-product mt-2 mb-2">
                                     {{$product->name}}
                                 </h2>
+                                @if($product->images->count() > 0)
                                 <div class="img-hero-index-card mt-4">
-                                    @if($product->images->count() > 0)
-                                    <img class="card-img-top img-products" src="{{ asset($product->images->first()->image_url) }}" alt="Card image cap">
-                                    @else
-                                    <img class="card-img-top img-products" src="{{ asset('images/basket.jpg') }}" alt="Product Image">
-                                    @endif
+                                    <img class="card-img-top img-products" src="{{ asset('storage/uploads/' . $product->images->first()->image_url) }}" alt="Card image cap">
                                 </div>
+                                @else
+                                <div class="img-hero-index-card mt-4">
+                                    <img class="card-img-top img-products" src="{{ asset('images/npi.png') }}" alt="Product Image">
+                                </div>
+                                @endif
 
                                 <div class="card-section mt-4 mb-2">{{$product->category->name}}</div>
                                 <div>
@@ -58,8 +60,9 @@
                                 </div>
                             </div>
                         </div>
-</a>
+                    </a>
                     @endforeach
+
                 </div>
             </div>
 
